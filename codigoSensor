@@ -1,0 +1,25 @@
+const int ledVermelho = 9; //definindo pino do led vermelho
+const int ledVerde = 8; // definindo pino do led verde
+const int pirpin = 2; //definindo pino do sensor
+
+void setup()
+{
+  pinMode(ledVermelho,OUTPUT); //declarando led vermelho como saida 
+  pinMode(ledVerde,OUTPUT); //declarando led verde como saida
+  pinMode(pirpin,INPUT); //declarando sensor como saida 
+  
+}
+void loop(){
+  int movimento = digitalRead(pirpin); //lê o valor do sensor pin
+  
+  if(movimento == HIGH){
+    //if para quando detectar movimento
+    digitalWrite(ledVerde, HIGH);
+    digitalWrite(ledVermelho, LOW); 
+  } else {
+    //else para quando não detectar movimento
+     digitalWrite(ledVerde, LOW);
+     digitalWrite(ledVermelho, HIGH);
+  }
+  delay(200); //pequeno delay para dar estabilidade
+}
